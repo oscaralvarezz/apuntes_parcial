@@ -140,3 +140,7 @@ class HashTable:
             else:
                 self.rehashing()
                 self.insert_data(data)
+
+hash = HashTable(5,2,4)
+
+print(hash)
