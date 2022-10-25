@@ -215,7 +215,10 @@ def test_lista_doble_lincada() -> None:
     assert str(lista_lincada) == "->".join(str(i) for i in range(1, 10))
 
 
-if __name__ == "__main__":
-    from doctest import testmod
 
-    testmod()
+
+lista_lincada = ListaDobleLincada()
+lista_lincada.insert_at_head('b')
+lista_lincada.insert_at_head('a')
+lista_lincada.insert_at_tail('c')
+tuple(lista_lincada)
