@@ -1,25 +1,25 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.previo = None
-        self.siguiente = None
+        self.previous = None
+        self.next = None
 
     def __str__(self):
         return f"{self.data}"
 
 
-class ListaDobleLincada:
+class DoublyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
 
     def __iter__(self):
         """
-        >>> lista_lincada = ListaDobleLinc()
-        >>> lista_lincada.insert_at_head('b')
-        >>> lista_lincada.insert_at_head('a')
-        >>> lista_lincada.insert_at_tail('c')
-        >>> tupla(lista_lincada)
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.insert_at_head('b')
+        >>> linked_list.insert_at_head('a')
+        >>> linked_list.insert_at_tail('c')
+        >>> tuple(linked_list)
         ('a', 'b', 'c')
         """
         node = self.head
@@ -29,21 +29,21 @@ class ListaDobleLincada:
 
     def __str__(self):
         """
-        >>> lista_lincada = ListaDobleLinc()
-        >>> lista_lincada.insert_at_tail('a')
-        >>> lista_lincada.insert_at_tail('b')
-        >>> lista_lincada.insert_at_tail('c')
-        >>> str(lista_lincada)
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.insert_at_tail('a')
+        >>> linked_list.insert_at_tail('b')
+        >>> linked_list.insert_at_tail('c')
+        >>> str(linked_list)
         'a->b->c'
         """
         return "->".join([str(item) for item in self])
 
     def __len__(self):
         """
-        >>> lista_lincada = ListaDobleLincada()
+        >>> linked_list = DoublyLinkedList()
         >>> for i in range(0, 5):
-        ...     lista_lincada.insert_at_nth(i, i + 1)
-        >>> len(lista_lincada) == 5
+        ...     linked_list.insert_at_nth(i, i + 1)
+        >>> len(linked_list) == 5
         True
         """
         return len(tuple(iter(self)))
@@ -56,47 +56,47 @@ class ListaDobleLincada:
 
     def insert_at_nth(self, index: int, data):
         """
-        >>> lista_lincada = ListaDobleLincada()
-        >>> lista_lincada.insert_at_nth(-1, 666)
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.insert_at_nth(-1, 666)
         Traceback (most recent call last):
         ....
         IndexError: list index out of range
-        >>> lista_lincada.insert_at_nth(1, 666)
+        >>> linked_list.insert_at_nth(1, 666)
         Traceback (most recent call last):
         ....
         IndexError: list index out of range
-        >>> lista_lincada.insert_at_nth(0, 2)
-        >>> lista_lincada.insert_at_nth(0, 1)
-        >>> lista_lincada.insert_at_nth(2, 4)
-        >>> lista_lincada.insert_at_nth(2, 3)
-        >>> str(lista_lincada)
+        >>> linked_list.insert_at_nth(0, 2)
+        >>> linked_list.insert_at_nth(0, 1)
+        >>> linked_list.insert_at_nth(2, 4)
+        >>> linked_list.insert_at_nth(2, 3)
+        >>> str(linked_list)
         '1->2->3->4'
-        >>> lista_lincada.insert_at_nth(5, 5)
+        >>> linked_list.insert_at_nth(5, 5)
         Traceback (most recent call last):
         ....
         IndexError: list index out of range
         """
         if not 0 <= index <= len(self):
             raise IndexError("list index out of range")
-        nuevo_nodo = Node(data)
+        new_node = Node(data)
         if self.head is None:
-            self.head = self.tail = nuevo_nodo
+            self.head = self.tail = new_node
         elif index == 0:
-            self.head.previous = nuevo_nodo
-            nuevo_nodo.next = self.head
-            self.head = nuevo_nodo
+            self.head.previous = new_node
+            new_node.next = self.head
+            self.head = new_node
         elif index == len(self):
-            self.tail.next = nuevo_nodo
-            nuevo_nodo.previous = self.tail
-            self.tail = nuevo_nodo
+            self.tail.next = new_node
+            new_node.previous = self.tail
+            self.tail = new_node
         else:
             temp = self.head
             for _ in range(0, index):
                 temp = temp.next
-            temp.previous.next = nuevo_nodo
-            nuevo_nodo.previous = temp.previous
-            nuevo_nodo.next = temp
-            temp.previous = nuevo_nodo
+            temp.previous.next = new_node
+            new_node.previous = temp.previous
+            new_node.next = temp
+            temp.previous = new_node
 
     def delete_head(self):
         return self.delete_at_nth(0)
@@ -106,22 +106,22 @@ class ListaDobleLincada:
 
     def delete_at_nth(self, index: int):
         """
-        >>> lista_lincada = ListaDobleLincada()
-        >>> lista_lincada.delete_at_nth(0)
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.delete_at_nth(0)
         Traceback (most recent call last):
         ....
         IndexError: list index out of range
         >>> for i in range(0, 5):
-        ...     lista_lincada.insert_at_nth(i, i + 1)
-        >>> lista_lincada.delete_at_nth(0) == 1
+        ...     linked_list.insert_at_nth(i, i + 1)
+        >>> linked_list.delete_at_nth(0) == 1
         True
-        >>> lista_lincada.delete_at_nth(3) == 5
+        >>> linked_list.delete_at_nth(3) == 5
         True
-        >>> lista_lincada.delete_at_nth(1) == 3
+        >>> linked_list.delete_at_nth(1) == 3
         True
-        >>> str(lista_lincada)
+        >>> str(linked_list)
         '2->4'
-        >>> lista_lincada.delete_at_nth(2)
+        >>> linked_list.delete_at_nth(2)
         Traceback (most recent call last):
         ....
         IndexError: list index out of range
@@ -169,56 +169,22 @@ class ListaDobleLincada:
 
     def is_empty(self):
         """
-        >>> lista_lincada = ListaDobleLincada()
-        >>> lista_lincada.is_empty()
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.is_empty()
         True
-        >>> lista_lincada.insert_at_tail(1)
-        >>> lista_lincada.is_empty()
+        >>> linked_list.insert_at_tail(1)
+        >>> linked_list.is_empty()
         False
         """
         return len(self) == 0
 
 
-def test_lista_doble_lincada() -> None:
-    """
-    >>> test_lista_doble_lincada()
-    """
-    lista_lincada = ListaDobleLincada()
-    assert lista_lincada.is_empty() is True
-    assert str(lista_lincada) == ""
 
-    try:
-        lista_lincada.delete_head()
-        raise AssertionError()  # This should not happen.
-    except IndexError:
-        assert True  # This should happen.
-
-    try:
-        lista_lincada.delete_tail()
-        raise AssertionError()  # This should not happen.
-    except IndexError:
-        assert True  # This should happen.
-
-    for i in range(10):
-        assert len(lista_lincada) == i
-        lista_lincada.insert_at_nth(i, i + 1)
-    assert str(lista_lincada) == "->".join(str(i) for i in range(1, 11))
-
-    lista_lincada.insert_at_head(0)
-    lista_lincada.insert_at_tail(11)
-    assert str(lista_lincada) == "->".join(str(i) for i in range(0, 12))
-
-    assert lista_lincada.delete_head() == 0
-    assert lista_lincada.delete_at_nth(9) == 10
-    assert lista_lincada.delete_tail() == 11
-    assert len(lista_lincada) == 9
-    assert str(lista_lincada) == "->".join(str(i) for i in range(1, 10))
-
-
-
-
-lista_lincada = ListaDobleLincada()
-lista_lincada.insert_at_head('b')
-lista_lincada.insert_at_head('a')
-lista_lincada.insert_at_tail('c')
-tuple(lista_lincada)
+lista = DoublyLinkedList()
+lista.insert_at_head(9)
+lista.insert_at_head(10)
+lista.insert_at_head(25)
+lista.insert_at_head(150)
+lista.delete(9)
+lista.insert_at_nth(1,8)
+print(lista)

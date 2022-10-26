@@ -53,7 +53,7 @@ def quitar(tabla, dato):
 
     return dato
 
-tabla = crear_tabla(6)
+tabla = crear_tabla(9)
 agregar(tabla, "pelo")
 agregar(tabla, "Hola")
 agregar(tabla,"saludos")
