@@ -34,5 +34,4 @@ for j in range(32,126):
     insertar(tabla_2, chr(j), convert = True)
 
 
-
 print(convertir("hola soy oscar alvarez dodani"))
