@@ -113,6 +113,3 @@ lista.insert_at_head(150)
 lista.delete(9)
 lista.insert_at_nth(1,8)
 print(lista)
-
-from algoritmos.mergesort import mergesort
-print(mergesort(lista))

@@ -34,4 +34,4 @@ for j in range(32,126):
     insertar(tabla_2, chr(j), convert = True)
 
 
-print(convertir("hola"))
+print(convertir("estela quiere mucho a oscar"))

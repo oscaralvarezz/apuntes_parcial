@@ -32,6 +32,7 @@ def merge(izquierda,derecha):
         lista_mezclada += derecha
     return lista_mezclada
 
+
 lista = [5,64,82,11,23,8]
 print(mergesort(lista))
 

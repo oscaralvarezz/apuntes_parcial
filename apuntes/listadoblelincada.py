@@ -179,7 +179,6 @@ class DoublyLinkedList:
         return len(self) == 0
 
 
-
 lista = DoublyLinkedList()
 lista.insert_at_head(9)
 lista.insert_at_head(10)

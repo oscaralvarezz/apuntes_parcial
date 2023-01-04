@@ -59,4 +59,3 @@ dec = binaryToDecimal(codification)
 caracter = tabla1[dec % len(tabla1)]
 caracter
 
-print(binaryToDecimal("hola"))

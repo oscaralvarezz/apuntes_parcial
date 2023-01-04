@@ -55,7 +55,6 @@ def quitar(tabla, dato):
 
 tabla = crear_tabla(9)
 agregar(tabla, "pelo")
-agregar(tabla, "Hola")
 agregar(tabla,"saludos")
 print(buscar(tabla,"saludos"))
-print(buscar(tabla,"Hola"))
+print(buscar(tabla,"pelo"))

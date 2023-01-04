@@ -53,7 +53,7 @@ def catalogar(vehiculos):
         
 def catalogar(vehiculos, ruedas=None):
       
-    # Primera pasada, mostrar recuento
+    # Primera pasada, mostramos el recuento
     if ruedas != None:
         contador = 0
         for v in vehiculos:
@@ -62,7 +62,7 @@ def catalogar(vehiculos, ruedas=None):
         print("Se han encontrado {} vehículos con {} ruedas:".format(contador, ruedas))
 
     
-    # Segnda pasada, mostrar vehículos
+    # Segnda pasada, mostramos los vehículos
     for v in vehiculos:
         if ruedas == None:
             print(type(v).__name__, v)

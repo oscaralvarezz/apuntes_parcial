@@ -10,7 +10,3 @@ if __name__ == "__main__":
 #parece correcto
 
 #esto debemos de hacerlo con todos los ejercicios
-
-
-from introducir.cadena import solicitar_introducir_palabra
-hola = solicitar_introducir_palabra("introduce")
